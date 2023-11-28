@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
 
 function App() {
+  let data = ["Fiat", "Peugeot","Ford","Renault","Citroen"]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App max-w-3xl mx-auto h-full">
+     <h1 className="bg-slate-500 text-white text-center">This is a Tailwind styled site!</h1>
+      <div>
+        {data.map(
+          (el)=>{
+            return <div>Cars listed as <span className=
+              "font-bold">{el.toUpperCase()}</span></div>
+          } )}
+      </div>
     </div>
-  );
-}
-
+); }
 export default App;
