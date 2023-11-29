@@ -1,6 +1,9 @@
 // import logo from './logo.svg';
 // import './App.css';
 import Header from "./components/Header"
+import Card from "./components/Card"
+import {useState} from 'react'
+
 
 function App() {
   let data = [
@@ -12,18 +15,29 @@ function App() {
     {brand:"Volkswagen", color:"white", model:"Golf 7", price:8500, "year":2019,"id":15},
     {brand:"Fiat", color:"gray", model:"Ritmo", price:300, "year":1990,"id":21}
   ]
+  let [budget, setBudget] = useState(4000)
+  const onChangeHandler = (event)=>{
+    setBudget(event.target.value)
+  }
+
   return (
-    <div className="App max-w-3xl mx-auto h-full">
+    <div className="App max-w-3xl mx-auto h-full ">
       <Header/>
-      <div>
+      <div className="border-2 border-yellow-500 my-5 p-3">
+        Your current budget is: <span className=""> {budget}</span></div>
+      <div className="grid grid-cols-3 my-3 gap-3">
         {data.map(
           (el)=>{
-            return (<div key={el.id}>
-              <span className="font-bold">
-                {el.brand.toUpperCase()}</span>
-                </div>
+            return (
+              <Card key={el.id} car = {el}/>
                 )
           } )}
+      </div>
+      <div className="bg-gray-300 rounded-md p-3">
+        <label htmlFor="budget">Budget:</label>
+        <input type="number" onChange={onChangeHandler}
+            id="budget" name="budget" min="300" max="10000"
+                step="100" value={budget}></input>
       </div>
     </div>
 ); }
