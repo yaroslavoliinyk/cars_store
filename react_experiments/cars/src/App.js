@@ -15,7 +15,7 @@ function App() {
     {brand:"Volkswagen", color:"white", model:"Golf 7", price:8500, "year":2019,"id":15},
     {brand:"Fiat", color:"gray", model:"Ritmo", price:300, "year":1990,"id":21}
   ]
-  let [budget, setBudget] = useState(4000)
+  let [budget, setBudget] = useState(4001)
   const onChangeHandler = (event)=>{
     setBudget(event.target.value)
   }
@@ -29,7 +29,7 @@ function App() {
         {data.map(
           (el)=>{
             return (
-              <Card key={el.id} car = {el}/>
+              (el.price<budget)&&<Card key={el.id} car = {el}/>
                 )
           } )}
       </div>
