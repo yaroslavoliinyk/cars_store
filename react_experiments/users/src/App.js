@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import Header from "./components/Header";
    
-  function App() {
+function App() {
     let [users, setUsers] = useState([])
     let [page, setPage] = useState(1)
 
